@@ -41,6 +41,7 @@ export class LoginComponent {
 
   login() {
     if (this.loginForm.valid) {
+      console.log("Login info==>", this.loginForm.value);
       this.router.navigate(['budget-planner/dashboard']);
     } else {
       this.snackBar.open('Invalid email or password', 'Close', { duration: 3000});
@@ -49,6 +50,7 @@ export class LoginComponent {
 
   register() {
     if (this.registerForm.valid) {
+      console.log("Register info==>>", this.registerForm.value);
       setTimeout(() => {
         window.location.reload();
       }, 2000);
