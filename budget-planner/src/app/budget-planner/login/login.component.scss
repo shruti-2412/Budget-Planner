@@ -29,11 +29,11 @@ body {
     text-align: center;
   }
 
-  
 .form-group {
   margin-bottom: 25px;
 }
 
+input[type="username"],
 input[type="email"],
 input[type="password"],
 input[type="text"] {
@@ -44,6 +44,7 @@ input[type="text"] {
   background-color: #f5f5f5;
 }
 
+input[type="username"]:focus,
 input[type="email"]:focus,
 input[type="password"]:focus,
 input[type="text"]:focus {

@@ -22,7 +22,7 @@ export class LoginComponent {
     private snackBar: MatSnackBar
   ) {}
 
-  ngOnInIt() {
+  ngOnInit() {
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
@@ -43,7 +43,7 @@ export class LoginComponent {
     if (this.loginForm.valid) {
       this.router.navigate(['budget-planner/dashboard']);
     } else {
-      this.snackBar.open('Invalid email or password', 'Close', { duration: 3000,});
+      this.snackBar.open('Invalid email or password', 'Close', { duration: 3000});
     }
   }
 
@@ -54,7 +54,7 @@ export class LoginComponent {
       }, 2000);
       this.router.navigate(['budget-planner/login']);
     } else {
-      this.snackBar.open('Please fill all the details correctly!', 'Close', { duration: 3000,});
+      this.snackBar.open('Please fill all the details correctly!', 'Close', { duration: 3000});
     }
   }
 }
