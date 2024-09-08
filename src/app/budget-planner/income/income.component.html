@@ -53,5 +53,23 @@
                 [class.disabled-dropdown]="!monthSelected">Add</button>
             </div> 
         </form>
+        <hr>
+        <h3>Income list - {{selectedMonth}}</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Source of Income</th>
+                    <th>Amount</th>
+                    <th>Investments</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let income of getFilteredIncomes()">
+                    <td>{{ income.source }}</td>
+                    <td>{{ income.amount }}</td>
+                    <td>{{ income.investments }}</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>

@@ -1,10 +1,11 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-income',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './income.component.html',
   styleUrl: './income.component.scss'
 })
@@ -48,10 +49,11 @@ export class IncomeComponent {
 
   onChange(event: any){
     this.selectedMonth= event.target.value;
-    this.getFilteredData();
+    this.getFilteredIncomes();
+    this.monthSelected= true;
   }
 
-  getFilteredData(){
+  getFilteredIncomes(){
     let filteredIncomes: any[]=[];
 
     switch(this.selectedMonth){
