@@ -12,6 +12,7 @@ export class IncomeComponent {
 
   incomeForm: any;
   selectedMonth: string;
+  monthSelected: boolean= false;
 
   januaryIncomes: any[] = [
     { source: 'Salary', amount: 5000, investments: '401(k)' },
