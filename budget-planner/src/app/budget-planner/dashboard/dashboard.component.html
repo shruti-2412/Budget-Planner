@@ -70,21 +70,28 @@
         <div class="card">
             <div class="card-header">
                 <span class="icon total-icon"><mat-icon>timeline</mat-icon></span>
-                <h2>Total</h2>
+                <h2>Total Savings</h2>
             </div>
             <hr>
             <div class="total-details">
-                <div class="month">
-                    <h3>Last Few Months</h3>
-                    <ul>
-                        <li *ngFor="let items of lastMonthsExpense">{{items}}</li>
-                    </ul>
+                <div class="total-item">
+                    <span class="icon income-icon"><mat-icon>attach_money</mat-icon></span>
+                    <h3>Current Month Income</h3>
+                    <p>{{totalCurrentMonthIncome | currency}}</p>
                 </div>
-                <div class="month">
-                    <h3>Current Months</h3>
-                    <p>{{currentMonthExpense}}</p>
+                <div class="total-item">
+                    <span class="icon expense-icon"><mat-icon>money_off</mat-icon></span>
+                    <h3>Current Month Expense</h3>
+                    <p>{{totalCurrentMonthExpense | currency}}</p>
                 </div>
-                <button class="button" (click)="onExpense()">View Details</button>
+            </div>
+            <hr>
+            <div class="total-line">
+                <div class="total-item">
+                    <span class="icon trans-icon"><mat-icon>account_balance_wallet</mat-icon></span>
+                    <h3>Current Month Saving</h3>
+                    <p>{{totalCurrentMonthSaving | currency}}</p>
+                </div>
             </div>
         </div>
     </div>

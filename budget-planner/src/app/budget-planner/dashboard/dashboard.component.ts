@@ -32,6 +32,8 @@ export class DashboardComponent {
   //Total
   totalCurrentMonthIncome = 2000;
   totalCurrentMonthExpense = 1500;
+
+  totalCurrentMonthSaving = this.totalCurrentMonthIncome - this.totalCurrentMonthExpense;
   
   constructor(public router: Router) {}
 
