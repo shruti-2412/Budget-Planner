@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-income',
@@ -31,7 +33,9 @@ export class IncomeComponent {
     { source: 'Rental Income', amount: 600, investments: 'Real Estate' },
   ];
 
-  constructor(private formbuilder: FormBuilder){
+  constructor(private formbuilder: FormBuilder,
+    private router: Router,
+    private snackBar: MatSnackBar) {
     const currentDate = new Date();
     this.selectedMonth = currentDate.toLocaleString('default', { month: 'long' });
   }
@@ -45,7 +49,26 @@ export class IncomeComponent {
     });
   }
 
-  onSubmit(){}
+  onSubmit(){
+    if (this.incomeForm.valid){
+      const newIncome= this.incomeForm.value;
+      switch(this.selectedMonth){
+        case 'January':
+          this.januaryIncomes.push(newIncome)
+          break;
+        case 'February':
+          this.februaryIncomes.push(newIncome)
+          break;
+        case 'March':
+          this.marchIncomes.push(newIncome)
+          break;
+        default:
+          break;
+      }
+      this.incomeForm.reset();
+      this.incomeForm.patchValues({month: '' ,source: '' , amount: '' , investments: '' });
+    }
+  }
 
   onChange(event: any){
     this.selectedMonth= event.target.value;
@@ -94,4 +117,11 @@ export class IncomeComponent {
     }
   }
 
+  onBack(){
+    this.router.navigate(['/budget-planner/dashboard']);
+  }
+
+  onSave(){
+    this.snackBar.open('Data saved successfully!', 'Close', { duration: 3000});
+  }
 }
